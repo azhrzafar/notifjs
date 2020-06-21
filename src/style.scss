@@ -1,0 +1,80 @@
+$notifjs-color-red: #ed3d3d;
+$notifjs-color-green: #3dc763;
+
+@keyframes notifjs-fadeinup {
+  0% {
+    opacity: 0;
+    transform: translateY(25%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes notifjs-fadeoutdown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(25%);
+  }
+}
+
+.notifjs-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  color: white;
+  z-index: 9999;
+
+  .notifjs {
+    display: block;
+    overflow: hidden;
+    animation: notifjs-fadeinup 0.3s forwards;
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.45);
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.45);
+    position: relative;
+    border-radius: 2px;
+    margin-bottom: 15px;
+
+    &.notifjs-error {
+      background: $notifjs-color-red;
+    }
+    &.notifjs-success {
+      background: $notifjs-color-green;
+    }
+    &.notifjs-disappear {
+      animation: notifjs-fadeoutdown 0.3s forwards;
+      animation-delay: 0.25s;
+      .notifjs-message {
+        opacity: 1;
+        animation: notifjs-fadeoutdown 0.3s forwards;
+        animation-delay: 0.1s;
+      }
+    }
+  }
+  .notifjs-message {
+    padding: 15px;
+    width: 100%;
+    position: relative;
+    opacity: 0;
+    animation: notifjs-fadeinup 0.3s forwards;
+    animation-delay: 0.15s;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .notifjs-container {
+    width: 100%;
+    top: 0;
+    right: 0;
+    .notifjs {
+      border-radius: 0;
+    }
+  }
+}
