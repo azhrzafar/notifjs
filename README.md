@@ -16,7 +16,7 @@ npm i notifjs
 
 ```js
 import Notif from "notifjs";
-import "notifjs/dist/notifjs.min.css";
+import "notifjs/dist/notif.min.css";
 
 // Create an instance of Notif
 const notif = new Notif(2000);

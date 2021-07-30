@@ -1,6 +1,6 @@
 {
   "name": "notifjs",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A simple, responsive vanilla javascript library for toast notifications.",
   "keywords": [
     "javascript",
